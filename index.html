@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garima Sangwan - AI/ML Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06d6a0;
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        [data-theme="light"] {
+            --bg-color: #ffffff;
+            --surface-color: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--surface-color);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--surface-color) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(
+                90deg,
+                #667eea,
+                #764ba2,
+                #f093fb,
+                #f5576c,
+                #4facfe,
+                #00f2fe
+            );
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInLeft 1s ease-out, gradientWave 4s ease-in-out infinite;
+            animation-delay: 0s, 1s; /* Start gradient animation after slide-in completes */
+        }
+
+        @keyframes gradientWave {
+            0%, 100% { 
+                background-position: 0% 50%; 
+            }
+            50% { 
+                background-position: 100% 50%; 
+            }
+        }
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .hero-content .description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(0);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .profile-card {
+            background: var(--surface-color);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transform: rotateY(15deg) rotateX(5deg);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-card:hover {
+            transform: rotateY(0deg) rotateX(0deg);
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--gradient);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: var(--surface-color);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .company {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin: 0.5rem 0;
+        }
+
+        .duration {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--bg-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        /* Projects Grid */
+        .projects-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab-button.active {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface-color);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Certifications Grid */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1200px; 
+            margin: 0 auto;  
+        }
+
+        .cert-card {
+            background: var(--surface-color);
+            border-radius: 100%;
+            padding: 1.6rem;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.1);
+            border-color: var(--secondary-color);
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Awards & Volunteer */
+        .awards-grid, .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .award-card, .volunteer-card {
+            background: var(--surface-color);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .award-card:hover, .volunteer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(6, 214, 160, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .award-icon, .volunteer-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .award-icon {
+            position: relative;
+            font-size: 3rem;
+            color: gold;
+            filter: drop-shadow(0 0 5px gold);
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            }
+
+        .award-icon:hover {
+        transform: scale(1.1);
+        }
+
+        .award-icon::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.6) 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        animation: sweep 2s infinite;
+        pointer-events: none;
+        z-index: 2;
+        }
+
+        @keyframes sweep {
+        0% { left: -75%; }
+        100% { left: 125%; }
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--surface-color);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary-color);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--surface-color);
+            border-radius: 20px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid var(--border-color);
+            animation: modalIn 0.3s ease-out;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--bg-color);
+            color: var(--text-primary);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-tabs {
+                flex-wrap: wrap;
+            }
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 12px;
+            right: -35px; /* Offset for ribbon effect */
+            background: linear-gradient(45deg, #7b2ff7, #00c6ff); /* Purple to blue */
+            color: white;
+            padding: 4px 40px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: glow 1.5s infinite ease-in-out;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(123,47,247,0.7), 0 0 20px rgba(0,198,255,0.4);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(123,47,247,0.9), 0 0 30px rgba(0,198,255,0.6);
+            }
+        }
+
+        /* Shiny sweep effect */
+        .featured-badge::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: skewX(-20deg);
+            animation: shine 2.5s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -50%;
+            }
+            50% {
+                left: 120%;
+            }
+            100% {
+                left: 120%;
+            }
+        }
+
+
+        /* Company logo styles */
+        .cert-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cert-icon {
+            position: relative; /* needed for ::after */
+            overflow: hidden; /* clip the shine */
+        }
+
+        /* Sweep shine effect */
+        .cert-icon::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: skewX(-25deg);
+            animation: sweep 2.5s infinite;
+            pointer-events: none;
+            z-index: 10; /* above the logo */
+        }
+
+        @keyframes sweep {
+            0% { left: -75%; }
+            100% { left: 125%; }
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: brightness(1.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effects */
+        .cert-card:hover .cert-icon {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15); /* softer */
+        }
+
+        .cert-card:hover .company-logo {
+            transform: scale(1.1);
+            filter: brightness(1.3);
+        }
+
+        /* Fallback icon styles (if logo fails to load) */
+        .cert-icon-fallback {
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Specific company logo adjustments if needed */
+        .cert-card:nth-child(1) .company-logo {
+            /* Microsoft logo specific adjustments */
+        }
+
+        .cert-card:nth-child(2) .company-logo {
+            /* Oracle logo specific adjustments */
+        }
+
+        .cert-card:nth-child(3) .company-logo {
+            /* Infosys logo specific adjustments */
+        }
+
+        /* Floating words container */
+        .floating-words {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Behind content */
+            pointer-events: none; /* So clicks pass through */
+        }
+
+        .word {
+            position: absolute;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.1); /* Transparent white */
+            animation: floatWord 20s linear infinite;
+        }
+
+        /* Keyframe animation for floating */
+        @keyframes floatWord {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(0);
+                opacity: 0;
+            }
+        }
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Garima S.</div>
+            <ul class="nav-links">
+                <li><a onclick="scrollToSection('hero')">Home</a></li>
+                <li><a onclick="scrollToSection('about')">About</a></li>
+                <li><a onclick="scrollToSection('experience')">Experience</a></li>
+                <li><a onclick="scrollToSection('certifications')">Certifications</a></li>
+                <li><a onclick="scrollToSection('projects')">Projects</a></li>
+                <li><a onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Garima Sangwan</h1>
+                <p class="subtitle">AI/ML Engineer</p>
+                <p class="description">
+                    Passionate about building intelligent systems that solve real-world problems. 
+                    Experienced in machine learning, data engineering, and scalable backend development.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary" onclick="scrollToSection('contact')">
+                        Get in Touch 💬
+                    </a>
+                    <a href="https://drive.google.com/file/d/1m9-VKutj7v1Orfvz-QyEtbvV6rTCdW-e/view?usp=share_link" 
+                    class="btn btn-secondary" download>
+                        Download Resume 📄
+                    </a>
+                </div>
+
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="avatar">GS</div>
+                    <h3>Software Engineer</h3>
+                    <p class="text-muted">Shipway by Unicommerce</p>
+                    <div class="contact-info-mini">
+                        <p>📍 Gurgaon, India</p>
+                        <p>📧 garimasangwan909@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="text-center" style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+            <p class="mb-2">
+                I'm a passionate AI/ML Engineer with a strong foundation in artificial intelligence, machine learning, 
+                and scalable system development. Currently working at Unicommerce, I specialize in building ML-driven 
+                solutions that automate complex processes and enhance operational efficiency.
+            </p>
+            <p class="mb-2">
+                My expertise spans across cloud technologies, MLOps, data engineering, and full-stack development. 
+                I love tackling challenging problems and turning innovative ideas into practical solutions that make a real impact.
+            </p>
+            <p>
+                When I'm not coding, you'll find me exploring the latest in AI research, mentoring fellow developers, 
+                or working on open-source projects that contribute to the tech community.
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card" onclick="openExperienceModal(0)">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Software Engineer</div>
+                        <div class="company">Unicommerce</div>
+                    </div>
+                    <div class="duration">Jun 2024 – Present</div>
+                </div>
+                <p>Leading ML-based automation systems and backend modernization projects, achieving significant improvements in efficiency and scalability.</p>
+            </div>
+
+            <div class="experience-card" onclick="openExperienceModal(1)">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Data Analyst Intern</div>
+                        <div class="company">Novexus Technologies</div>
+                    </div>
+                    <div class="duration">Sep 2023 – Nov 2023</div>
+                </div>
+                <p>Built scalable data processing pipelines and created comprehensive dashboards that drove data-driven decision making across the organization.</p>
+            </div>
+
+            <div class="experience-card" onclick="openExperienceModal(2)">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Data Engineer Intern</div>
+                        <div class="company">Globalshala</div>
+                    </div>
+                    <div class="duration">Jun 2023 – Aug 2023</div>
+                </div>
+                <p>Optimized data pipelines and improved analytics accuracy through strategic redesign and query optimization initiatives.</p>
+            </div>
+        </div>
+    </section>
+
+
+   <!-- Certifications Section -->
+
+    <section id="certifications" class="section">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certifications-grid">
+            <div class="cert-card" onclick="openCertModal(0)">
+                <div class="cert-icon">
+                    <img src="https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/Microsoft_Logo.png" 
+                        alt="Microsoft" 
+                        class="company-logo"
+                        onerror="this.outerHTML='<div class=\\'cert-icon-fallback\\'>🏆</div>'">
+                </div>
+                <div class="cert-title">Career Essentials in Generative AI</div>
+                <div class="cert-issuer">Microsoft</div>
+            </div>
+            <div class="cert-card" onclick="openCertModal(1)">
+                <div class="cert-icon">
+                    <img src="https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/Oracle_Logo.png" 
+                        alt="Oracle" 
+                        class="company-logo"
+                        onerror="this.outerHTML='<div class=\\'cert-icon-fallback\\'>☁️</div>'">
+                </div>
+                <div class="cert-title">Infrastructure Gen-AI Professional</div>
+                <div class="cert-issuer">Oracle</div>
+            </div>
+            <div class="cert-card" onclick="openCertModal(2)">
+                <div class="cert-icon">
+                    <img src="https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/Daco_6144586.png" 
+                        alt="Accenture" 
+                        class="company-logo"
+                        onerror="this.outerHTML='<div class=\\'cert-icon-fallback\\'>📊</div>'">
+                </div>
+                <div class="cert-title">Techniques for Big Data Analytics</div>
+                <div class="cert-issuer">Infosys</div>
+            </div>
+            <div class="cert-card" onclick="openCertModal(3)">
+                <div class="cert-icon">
+                    <img src="https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/Linkedin_Logo.png" 
+                        alt="LinkedIn" 
+                        class="company-logo"
+                        onerror="this.outerHTML='<div class=\\'cert-icon-fallback\\'>🏆</div>'">
+                </div>
+                <div class="cert-title">Career Essentials in Project Management</div>
+                <div class="cert-issuer">LinkedIn</div>
+            </div>
+            <div class="cert-card" onclick="openCertModal(4)">
+                <div class="cert-icon">
+                    <img src="https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/Googles_Logo.png" 
+                        alt="Google" 
+                        class="company-logo"
+                        onerror="this.outerHTML='<div class=\\'cert-icon-fallback\\'>🏆</div>'">
+                </div>
+                <div class="cert-title">Google Ai Essentials</div>
+                <div class="cert-issuer">Google</div>
+            </div>
+            <div class="cert-card" onclick="openCertModal(5)">
+                <div class="cert-icon">
+                    <img src="https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/Comptia_Logo.png.webp" 
+                        alt="Comptia" 
+                        class="company-logo"
+                        onerror="this.outerHTML='<div class=\\'cert-icon-fallback\\'>🏆</div>'">
+                </div>
+                <div class="cert-title">Devops Fundamentals</div>
+                <div class="cert-issuer">Comptia</div>
+            </div>
+            <div class="cert-card" onclick="openCertModal(6)">
+                <div class="cert-icon">
+                    <img src="https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/dataiku.avif" 
+                        alt="Dataiku" 
+                        class="company-logo"
+                        onerror="this.outerHTML='<div class=\\'cert-icon-fallback\\'>🏆</div>'">
+                </div>
+                <div class="cert-title">MLOps Practitioner</div>
+                <div class="cert-issuer">Dataiku</div>
+            </div>
+            <div class="cert-card" onclick="openCertModal(7)">
+                <div class="cert-icon">
+                    <img src="https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/Googles_Logo.png" 
+                        alt="Google" 
+                        class="company-logo"
+                        onerror="this.outerHTML='<div class=\\'cert-icon-fallback\\'>🏆</div>'">
+                </div>
+                <div class="cert-title">Google Prompting Essentials</div>
+                <div class="cert-issuer">Google</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-tabs">
+            <button class="tab-button active" onclick="switchProjectTab('all')">All Projects</button>
+            <button class="tab-button" onclick="switchProjectTab('ai')">AI/ML</button>
+            <button class="tab-button" onclick="switchProjectTab('backend')">Backend</button>
+        </div>
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be dynamically loaded here -->
+        </div>
+    </section>
+
+
+    <!-- Awards Section -->
+    <section id="awards" class="section">
+        <h2 class="section-title">Awards & Recognition</h2>
+        <div class="awards-grid">
+            <div class="award-card" onclick="openAwardModal(0)">
+                <div class="award-icon">🥉</div>
+                <div class="award-title">3rd Place - GenAI Hackathon</div>
+                <div class="award-issuer">Unicommerce</div>
+            </div>
+            <div class="award-card" onclick="openAwardModal(1)">
+                <div class="award-icon">🥇</div>
+                <div class="award-title">1st Place - MLSA Innovation Challenge</div>
+                <div class="award-issuer">Microsoft</div>
+            </div>
+            <div class="award-card" onclick="openAwardModal(2)">
+                <div class="award-icon">⭐</div>
+                <div class="award-title">Student of the Year</div>
+                <div class="award-issuer">Times of India</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="section">
+        <h2 class="section-title">Volunteer Experience</h2>
+        <div class="volunteer-grid">
+            <div class="volunteer-card" onclick="openVolunteerModal(0)">
+                <div class="volunteer-icon">💻</div>
+                <div class="volunteer-title">Coding Club Lead</div>
+                <div class="volunteer-org">GD Goenka University</div>
+            </div>
+            <div class="volunteer-card" onclick="openVolunteerModal(1)">
+                <div class="volunteer-icon">🎭</div>
+                <div class="volunteer-title">Cultural Head</div>
+                <div class="volunteer-org">Swiss Cottage School</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item" onclick="openEmail()">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <div>garimasangwan909@gmail.com</div>
+                        <small class="text-muted">Click to send email</small>
+                    </div>
+                    <button onclick="copyEmail(event)" style="margin-left: auto; background: none; border: none; color: var(--primary-color); cursor: pointer; padding: 0.5rem;">📋</button>
+                </div>
+                <div class="contact-item" onclick="openLinkedIn()">
+                    <div class="contact-icon">💼</div>
+                    <div>
+                        <div>LinkedIn Profile</div>
+                        <small class="text-muted">Connect with me</small>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <div>Gurgaon, India</div>
+                        <small class="text-muted">Available for opportunities</small>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3 class="mb-2">Send me a message</h3>
+                <form onsubmit="submitContactForm(event)">
+                    <div class="form-group">
+                        <label for="from_name">Name</label>
+                        <input type="text" id="from_name" name="from_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your project or opportunity..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message 🚀</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("JTAWD87TtQAN0RENe"); // Your Public Key
+        })();
+    </script>
+    <div class="floating-words" id="floatingWords"></div>
+
+    <script>
+        const words = [
+            "Artificial Intelligence", 'NLP', 'scikit-learn', 'Matplotlib',
+            "Machine Learning", 'CNNs', 'Data',
+            "AWS", 'NumPy', 'Node.js', 
+            "Python", 'GenAI',
+            "Git", 'SQL', 'Agents',
+            "Docker", 'Pandas'
+        ];
+
+        function createFloatingWord(text) {
+            const word = document.createElement("div");
+            word.className = "word";
+            word.textContent = text;
+
+            // Random position and delay
+            word.style.left = Math.random() * 100 + "vw";
+            word.style.animationDuration = (15 + Math.random() * 10) + "s";
+            word.style.animationDelay = Math.random() * 10 + "s";
+
+            document.getElementById("floatingWords").appendChild(word);
+
+            // Remove after animation
+            setTimeout(() => word.remove(), 25000);
+        }
+
+        // Create words continuously
+        setInterval(() => {
+            const randomWord = words[Math.floor(Math.random() * words.length)];
+            createFloatingWord(randomWord);
+    }, 2000);
+    </script>
+    <script>
+        // Data
+        const experienceData = [
+            {
+                title: "Software Engineer",
+                company: "Unicommerce",
+                duration: "Jun 2024 – Present",
+                location: "Gurugram, IN",
+                responsibilities: [
+                    "Architected and deployed an ML-based courier allocation system automating 90% of assignments",
+                    "Refined an eCommerce automation tool to boost efficiency by 30%",
+                    "Migrated legacy backend from PHP to Node.js for Shipway.com, cutting processing time by 65%",
+                    "Implemented Docker-based microservices for model inference with 99.9% uptime",
+                    "Wrote 500+ Jest tests to maintain 98% test coverage and ensure code reliability"
+                ],
+                technologies: ["Python", "Node.js", "Docker", "Kubernetes", "Machine Learning", "MySQL", "Jest"],
+                impact: "90% automation of courier assignments, 30% efficiency boost, 65% processing time reduction"
+            },
+            {
+                title: "Data Analyst Intern",
+                company: "Novexus Technologies",
+                duration: "Sep 2023 – Nov 2023",
+                location: "Gurugram, IN",
+                responsibilities: [
+                    "Built scalable Python data pre-processing pipelines improving data quality across 10M+ customer records",
+                    "Created 20+ dashboards delivering real-time insights",
+                    "Conducted A/B tests on segmentation models, achieving a 18% lift in campaign ROI",
+                    "Collaborated with cross-functional teams to identify data-driven optimization opportunities"
+                ],
+                technologies: ["Python", "SQL", "Tableau", "Data Pipeline", "A/B Testing", "Statistical Analysis"],
+                impact: "25% increase in data-driven decisions, 18% lift in campaign ROI"
+            },
+            {
+                title: "Data Engineer Intern",
+                company: "Globalshala",
+                duration: "Jun 2023 – Aug 2023",
+                location: "Gurugram, IN",
+                responsibilities: [
+                    "Revamped and optimized data pipelines to handle 5M+ records/day, boosting processing speed by 40%",
+                    "Collaborated on campaign tracking redesign, improving analytics accuracy by 85%",
+                    "Refactored SQL queries to improve database performance, reducing metric computation time by 60%",
+                    "Implemented data quality checks and monitoring systems"
+                ],
+                technologies: ["Python", "SQL", "ETL", "Data Pipeline", "Database Optimization", "Analytics"],
+                impact: "40% processing speed improvement, 85% analytics accuracy increase, 60% faster computations"
+            }
+        ];
+
+        const projectsData = [
+            {
+                title: "Enterprise AI Solutions with Llama",
+                icon: "🤖",
+                description: "Developed a suite of 7 enterprise-grade AI applications using Meta’s Llama 4 to handle multilingual communication, automated document processing, and advanced visual recognition tasks. Integrated large-context handling (10M+ tokens) and real-time object detection with bounding box annotations, enabling intelligent automation across diverse workflows.",
+                technologies: ['Python', 'Llama 4', 'Machine Learning', 'API Integration'],
+                impact: "Enabled multilingual, document, and visual intelligence processing at enterprise scale through 7 production-ready AI applications, automating workflows for 10M+ token contexts and delivering real-time object detection with bounding box accuracy.",
+                category: ["web"],
+                github: "https://github.com/Garima-Sangwan/llama4-multimodal-applications",
+                featured: true 
+            },
+            {
+                title: "Sign Language Transcription System",
+                icon: "🤟", 
+                description: "Built a real-time sign language recognition system that translates gestures into text using TensorFlow and OpenCV. Designed for accessibility, the system leverages advanced computer vision to detect and interpret signs with high accuracy while maintaining low latency for smooth, live communication.",
+                technologies: ['Python', 'TensorFlow', 'OpenCV', 'Flask', 'CNNs'],
+                impact: "Improved accessibility with a real-time sign language-to-text system achieving 89% accuracy, reducing processing latency by 30% and enabling smoother live communication for users with hearing impairments.",
+                category: ["backend"],
+                github: "https://github.com/Garima-Sangwan/Sign-Language-Transcription-Using-Ai"
+            },
+            {
+                title: "AI Contract Analyzer",
+                icon: "📑", 
+                description: "Created an intelligent legal document analysis tool leveraging GPT-4, FAISS, and NLP to identify and extract contract clauses with high precision. Incorporated semantic search with vector embeddings, enabling lawyers and compliance teams to query contracts in natural language and receive instant, contextually relevant results.",
+                technologies: ['GPT-4', 'FAISS', 'Docker', 'NLP', 'Python', 'Machine Learning'],
+                impact: "Streamlined legal review by extracting and analyzing clauses from 50+ contracts with 95% accuracy, powered by semantic search for natural language queries and achieving sub-second retrieval times.",
+                category: ["ai"],
+                github: "https://github.com/Garima-Sangwan/AI-Powered-Contract-Analysis-Using-LLMs"
+            },
+            {
+                title: "House Price Prediction",
+                icon: "🏠",
+                description: "Developed an advanced regression model to accurately predict house prices using extensive feature engineering and multiple regression algorithms. Leveraged data preprocessing and exploratory data analysis to improve model robustness. The system supports real estate stakeholders in making informed pricing decisions by analyzing various factors like location, size, and market trends.",
+                technologies: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+                impact: "Achieved 92% accuracy in price prediction, reducing valuation errors by 15%, which accelerated property appraisal processes by 25%. Improved decision-making for real estate agents and buyers with data-driven insights.",
+                category: ["ai"],
+                github: "https://github.com/Garima-Sangwan/House-Price-Prediction"
+            },
+            {
+                title: "Wine Quality Prediction",
+                icon: "🍷",
+                description: "Built a machine learning pipeline to predict wine quality based on physicochemical properties using classification algorithms and deep learning models. Incorporated feature selection, hyperparameter tuning, and visualization to enhance interpretability. This model aids vintners and quality inspectors by providing automated, consistent quality assessment of wines.",
+                technologies: ["Python", "TensorFlow", "Pandas", "Seaborn", "Keras"],
+                impact: "Achieved 88% classification accuracy, improving quality control efficiency by 30% and reducing manual inspection time by 40%, leading to more consistent product quality and increased consumer satisfaction.",
+                category: ["ai"],
+                github: "https://github.com/Garima-Sangwan/Wine-quality-prediction"
+            },
+            {
+                title: "Serverless Agentic Workflows with AWS",
+                icon: "☁️",
+                description: "Built an intelligent serverless AI agent system using Amazon Bedrock that autonomously handles complex customer support workflows. Implemented modular agent architecture with RAG capabilities, CRM integration, and ethical guardrails, enabling autonomous decision-making and code execution in a scalable, cost-effective serverless environment.",
+                technologies: ['Amazon Bedrock', 'AWS Lambda', 'Python', 'RAG', 'Serverless', 'AI Agents', 'Jupyter', 'AWS'],
+                impact: "Deployed autonomous customer support agent processing 100+ queries with 90%+ accuracy, reduced response time from minutes to seconds, eliminated 24/7 infrastructure costs through serverless architecture, and integrated with CRM systems handling 50+ customer records while maintaining 99% uptime with comprehensive guardrails.",
+                category: ["ai", "serverless", "aws"],
+                github: "https://github.com/Garima-Sangwan/serverless-ai-agents-aws"
+            }
+        ];
+
+        const certificationsData = [
+            {
+                title: "Career Essentials in Generative AI",
+                issuer: "Microsoft",
+                year: "2024",
+                description: "Demonstrated proficiency in prompt engineering, LLM workflows, and applied GenAI tools for real-world solutions.",
+                skills: ["Prompt Engineering", "LLM Workflows", "GenAI Applications", "AI Ethics"],
+                image: "https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/IMG_5208.jpg" // Update with your actual filename
+            },
+            {
+                title: "Infrastructure Cloud Gen-AI Professional",
+                issuer: "Oracle",
+                year: "2024",
+                description: "Gained hands-on expertise in GenAI model deployment and infrastructure integration on Oracle Cloud.",
+                skills: ["Cloud Infrastructure", "Model Deployment", "Oracle Cloud", "GenAI Integration"],
+                image: "https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/IMG_5207.jpg" // Update with your actual filename
+            },
+            {
+                title: "Techniques for Big Data Analytics",
+                issuer: "Accenture",
+                year: "2023",
+                description: "Mastered Hadoop, Spark, and data processing pipelines to analyze and extract insights from large-scale datasets.",
+                skills: ["Hadoop", "Apache Spark", "Big Data", "Data Processing", "Analytics"],
+                image: "https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/IMG_5209.jpg" // Update with your actual filename
+            },
+            {
+                title: "Career Essentials in Project Management",
+                issuer: "LinkedIn",
+                year: "2025",
+                description: "Demonstrated proficiency in core project management principles including planning, risk management, and agile methodologies to lead and deliver projects effectively.",
+                skills: ["Project Planning", "Risk Management", "Agile Methodologies", "Stakeholder Communication"],
+                image: "https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/IMG_5211.jpg"
+            },
+            {
+                title: "AI Essentials",
+                issuer: "Google",
+                year: "2025",
+                description: "Mastered foundational AI concepts, including machine learning pipelines, data preprocessing, and large-scale data analysis using Hadoop and Spark ecosystems.",
+                skills: ["Machine Learning Basics", "Data Preprocessing", "Hadoop", "Apache Spark", "Big Data Analytics"],
+                image: "https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/IMG_5212.jpg"
+            },
+            {
+                title: "Fundamentals of DevOps",
+                issuer: "CompTIA",
+                year: "2025",
+                description: "Gained hands-on expertise in DevOps practices covering continuous integration, continuous deployment (CI/CD), infrastructure as code, and automation using Oracle Cloud.",
+                skills: ["CI/CD", "Infrastructure as Code", "Oracle Cloud", "Automation", "Containerization"],
+                image: "https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/IMG_5210.jpg"
+            },
+            {
+                "title": "MLOps Practitioner Certificate",
+                "issuer": "Dataiku",
+                "year": "2025",
+                "description": "Validated proficiency in deploying, monitoring, and operationalizing machine learning models in production using Dataiku—including batch and real-time deployment, API service design and governance, CI/CD integration, model evaluation, monitoring, and updates on Automation nodes.",
+                "skills": ["MLOps", "Batch & Real-Time Deployment", "API Service Design & Deployment", "Model Monitoring & Updates", "CI/CD Integration","Governance & Documentation", "Refactoring Techniques","Model Evaluation & Drift Analysis"],
+                "image": "https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/IMG_5214.jpg"
+            },
+            {
+                "title": "Google Prompting Essentials Specialization",
+                "issuer": "Google",
+                "year": "2025",
+                "description": "Learned to craft effective prompts for generative AI using a structured 5-step framework (task, context, references, evaluate, iterate); applied these techniques to tasks like brainstorming, content creation, data analysis, spreadsheet troubleshooting, prompt chaining, building AI agents, and designing reusable prompt libraries.",
+                "skills": ["Prompt Engineering","Generative AI", "Prompt Framework", "Writing & Refining Prompts", "Content Generation & Summarization", "Data Analysis & Visualization", "Prompt Chaining & AI Agents","Prompt Versioning & Reusability"],
+                "image": "https://raw.githubusercontent.com/Garima-Sangwan/Certifications/main/IMG_5213.jpg"
+                }
+        ];
+
+
+        const awardsData = [
+            {
+                title: "3rd Place - GenAI Hackathon",
+                issuer: "Unicommerce",
+                year: "2024",
+                description: "Developed an innovative GenAI solution for optimizing supply chain operations, demonstrating creativity and technical excellence in a competitive environment.",
+                impact: "Recognized among top performers in company-wide innovation challenge"
+            },
+            {
+                title: "1st Place - MLSA Innovation Challenge",
+                issuer: "Microsoft",
+                year: "2023",
+                description: "Won first place in Microsoft Learn Student Ambassador Innovation Challenge by creating an AI-powered accessibility solution.",
+                impact: "Led team to victory with innovative AI application for social good"
+            },
+            {
+                title: "Student of the Year",
+                issuer: "Times of India",
+                year: "2019",
+                description: "Awarded for outstanding academic performance and contributions to technology and community service.",
+                impact: "Recognized for excellence in academics and leadership"
+            }
+        ];
+
+        const volunteerData = [
+            {
+                title: "Coding Club Lead",
+                organization: "GD Goenka University",
+                duration: "2022 - 2024",
+                description: "Led 50+ students in workshops and an ML bootcamp, driving 15+ projects and 40% rise in engagement.",
+                responsibilities: [
+                    "Organized weekly coding workshops and hackathons",
+                    "Mentored students in machine learning and software development",
+                    "Coordinated with industry professionals for guest lectures",
+                    "Managed club resources and event planning"
+                ],
+                impact: "50+ students mentored, 15+ projects completed, 40% engagement increase"
+            },
+            {
+                title: "Cultural Head",
+                organization: "Swiss Cottage School",
+                duration: "2019 - 2020",
+                description: "Directed 10+ fests and managed 30+ volunteers, boosting participation by 25% and partnerships.",
+                responsibilities: [
+                    "Planned and executed cultural events and festivals",
+                    "Managed volunteer teams and event logistics",
+                    "Coordinated with external partners and sponsors",
+                    "Developed creative content and promotional materials"
+                ],
+                impact: "10+ successful events, 25% participation increase, stronger community partnerships"
+            }
+        ];
+
+        // Utility Functions
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const elementPosition = element.offsetTop - navbarHeight - 20;
+            
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.getAttribute('data-theme') === 'light') {
+                body.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function openEmail() {
+            window.location.href = 'mailto:garimasangwan909@gmail.com';
+        }
+
+        function copyEmail(event) {
+            event.stopPropagation();
+            navigator.clipboard.writeText('garimasangwan909@gmail.com').then(() => {
+                const button = event.target;
+                button.textContent = '✓';
+                setTimeout(() => {
+                    button.textContent = '📋';
+                }, 2000);
+            });
+        }
+
+        function openLinkedIn() {
+            window.open('https://linkedin.com/in/garimasangwan99', '_blank');
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            submitButton.textContent = 'Sending... 📤';
+            submitButton.disabled = true;
+
+            // First send the message to you
+            emailjs.sendForm('service_99t8p5la', 'template_5u0y16a', event.target, 'JTAWD87TtQAN0RENe')
+                .then(() => {
+                    // Then send the auto-reply to the user
+                    return emailjs.sendForm('service_99t8p5la', 'template_utamyo4', event.target, 'JTAWD87TtQAN0RENe');
+                })
+                .then(() => {
+                    Swal.fire({
+                        title: 'Message Sent! 📩',
+                        text: 'Thank you for getting in touch through my portfolio website. I’ve received your message and will personally review it as soon as possible',
+                        icon: 'success',
+                        confirmButtonText: 'Awesome!',
+                        confirmButtonColor: '#6C63FF',
+                        background: '#ffffff',
+                        color: '#333',
+                        showClass: { popup: 'animate__animated animate__fadeInDown' },
+                        hideClass: { popup: 'animate__animated animate__fadeOutUp' }
+                    });
+                    event.target.reset();
+                })
+                .catch((error) => {
+                    console.error('EmailJS Error:', error);
+                    alert('Oops! Something went wrong. Please try again later.');
+                })
+                .finally(() => {
+                    submitButton.textContent = 'Send Message 🚀';
+                    submitButton.disabled = false;
+                });
+        }
+
+
+        // Modal Functions
+        function openModal(title, content) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalBody').innerHTML = content;
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openExperienceModal(index) {
+            const exp = experienceData[index];
+            const content = `
+                <div style="margin-bottom: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">${exp.company}</h3>
+                            <p style="color: var(--text-muted);">${exp.location} | ${exp.duration}</p>
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Key Responsibilities:</h4>
+                    <ul style="margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.8;">
+                        ${exp.responsibilities.map(resp => `<li style="margin-bottom: 0.5rem;">${resp}</li>`).join('')}
+                    </ul>
+                    
+                    <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Technologies Used:</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+                        ${exp.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                    
+                    <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Impact:</h4>
+                    <p style="background: var(--bg-color); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                        ${exp.impact}
+                    </p>
+                </div>
+            `;
+            openModal(exp.title, content);
+        }
+
+        function openCertModal(index) {
+            const cert = certificationsData[index];
+
+            let imageElement;
+            if (cert.image) {
+                imageElement = `<img 
+                    src="${cert.image}" 
+                    alt="${cert.title}" 
+                    style="max-width: 100%; max-height: 300px; margin-bottom: 1rem; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+                    onerror="this.replaceWith(document.createElement('div')); this.previousElementSibling?.remove(); this.insertAdjacentHTML('beforebegin', '<div style=&quot;font-size:4rem;margin-bottom:1rem;&quot;>🏆</div>');"
+                >`;
+            } else {
+                imageElement = `<div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>`;
+            }
+
+            const content = `
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    ${imageElement}
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">${cert.issuer}</h3>
+                    <p style="color: var(--text-muted);">Issued in ${cert.year}</p>
+                </div>
+                <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Description:</h4>
+                <p style="margin-bottom: 2rem; line-height: 1.8;">${cert.description}</p>
+                <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Skills Acquired:</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    ${cert.skills.map(skill => `<span class="tech-tag">${skill}</span>`).join('')}
+                </div>
+            `;
+
+            openModal(cert.title, content);
+        }
+
+
+
+        function openAwardModal(index) {
+            const award = awardsData[index];
+            const content = `
+                <div style="position:relative;width:100px;height:100px;margin:0 auto 2rem;display:flex;justify-content:center;align-items:center;cursor:pointer;overflow:hidden;border-radius:50%;box-shadow:0 0 10px rgba(255,215,0,0.6);transition:transform 0.3s ease;" 
+                    onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="font-size:4rem;color:gold;filter:drop-shadow(0 0 5px gold);z-index:1;">🏆</div>
+                    <div style="position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 50%,rgba(255,255,255,0) 100%);transform:skewX(-25deg);animation:sweep 2s infinite;z-index:2;pointer-events:none;"></div>
+                </div>
+                <h3 style="color:var(--primary-color);text-align:center;margin-bottom:0.5rem;">${award.issuer}</h3>
+                <p style="color:var(--text-muted);text-align:center;">Awarded in ${award.year}</p>
+                <h4 style="margin-bottom:1rem;color:var(--accent-color);">Achievement:</h4>
+                <p style="margin-bottom:2rem;line-height:1.8;">${award.description}</p>
+                <h4 style="margin-bottom:1rem;color:var(--accent-color);">Impact:</h4>
+                <p style="background:var(--bg-color);padding:1rem;border-radius:8px;border-left:4px solid var(--accent-color);">${award.impact}</p>
+                <style>@keyframes sweep{0%{left:-75%;}100%{left:125%;}}</style>
+            `;
+            openModal(award.title, content);
+        }
+
+
+        function openVolunteerModal(index) {
+            const volunteer = volunteerData[index];
+            const content = `
+                <div style="margin-bottom: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">${volunteer.organization}</h3>
+                            <p style="color: var(--text-muted);">${volunteer.duration}</p>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-bottom: 2rem; line-height: 1.8;">${volunteer.description}</p>
+                    
+                    <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Key Responsibilities:</h4>
+                    <ul style="margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.8;">
+                        ${volunteer.responsibilities.map(resp => `<li style="margin-bottom: 0.5rem;">${resp}</li>`).join('')}
+                    </ul>
+                    
+                    <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Impact:</h4>
+                    <p style="background: var(--bg-color); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                        ${volunteer.impact}
+                    </p>
+                </div>
+            `;
+            openModal(volunteer.title, content);
+        }
+
+        function openProjectModal(index) {
+            const project = projectsData[index];
+            const content = `
+                <div style="margin-bottom: 2rem;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">${project.icon}</div>
+                    </div>
+                    
+                    <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Description:</h4>
+                    <p style="margin-bottom: 2rem; line-height: 1.8;">${project.description}</p>
+                    
+                    <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Technologies:</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+                        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                    
+                    <h4 style="margin-bottom: 1rem; color: var(--accent-color);">Impact:</h4>
+                    <p style="background: var(--bg-color); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--primary-color); margin-bottom: 2rem;">
+                        ${project.impact}
+                    </p>
+                    
+                    <div style="display: flex; justify-content: center;">
+                        <a href="${project.github}" class="btn btn-primary" style="text-decoration: none;" target="_blank">
+                            View Project 🚀
+                        </a>
+                    </div>
+
+                </div>
+            `;
+            openModal(project.title, content);
+        }
+
+        // Projects Tab Switching
+        function switchProjectTab(category) {
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            renderProjects(category);
+        }
+
+        function renderProjects(category = 'all') {
+            const grid = document.getElementById('projectsGrid');
+            let filteredProjects = projectsData;
+            
+            if (category !== 'all') {
+                filteredProjects = projectsData.filter(project => project.category.includes(category));
+            }
+            
+            grid.innerHTML = filteredProjects.map((project) => `
+                <div class="project-card" onclick="openProjectModal(${projectsData.indexOf(project)})" style="position: relative;">
+                    
+                    ${project.featured ? `<div class="featured-badge">Featured</div>` : ''}
+                    
+                    <div class="project-image">${project.icon}</div>
+                    <div class="project-content">
+                        <h3 class="project-title">${project.title}</h3>
+                        <div class="tech-tags">
+                            ${project.technologies.slice(0, 4).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            ${project.technologies.length > 4 ? '<span class="tech-tag">+' + (project.technologies.length - 4) + '</span>' : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Intersection Observer for animations
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.setAttribute('data-theme', 'light');
+                document.querySelector('.theme-toggle').textContent = '☀️';
+            }
+            
+            // Setup scroll animations
+            setupScrollAnimations();
+            
+            // Render projects
+            renderProjects();
+            
+            // Close modal on outside click
+            document.getElementById('modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+            
+            // Close modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
+
+        // Smooth scrolling for navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(30, 41, 59, 0.95)';
+            } else {
+                navbar.style.background = 'var(--surface-color)';
+            }
+        });
+    </script>
+</body>
+</html>📱</div>
+            
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
