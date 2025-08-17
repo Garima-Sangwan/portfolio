@@ -342,12 +342,6 @@
         }
 
         /* Projects Grid */
-        .projects-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
 
         .tab-button {
             padding: 1rem 2rem;
@@ -742,9 +736,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .projects-tabs {
-                flex-wrap: wrap;
-            }
         }
 
         .featured-badge {
@@ -1140,11 +1131,6 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <h2 class="section-title">Projects</h2>
-        <div class="projects-tabs">
-            <button class="tab-button active" onclick="switchProjectTab('all')">All Projects</button>
-            <button class="tab-button" onclick="switchProjectTab('ai')">AI/ML</button>
-            <button class="tab-button" onclick="switchProjectTab('backend')">Backend</button>
-        </div>
         <div class="projects-grid" id="projectsGrid">
             <!-- Projects will be dynamically loaded here -->
         </div>
@@ -1336,6 +1322,16 @@
 
         const projectsData = [
             {
+                title: "CPG Store Visit Copilot - AI Field Sales Assistant",
+                icon: "📦",
+                description: "Built an end-to-end AI-powered field companion for Consumer Packaged Goods (CPG) sales operations, combining computer vision for real-time shelf audits, time-series forecasting for demand prediction, and agentic orchestration for intelligent decision-making. Achieved 87% mAP@0.5 for SKU detection, 12.3% sMAPE for demand forecasting, and 40% improvement in visit efficiency through automated compliance scoring and optimized replenishment recommendations.",
+                technologies: ['JavaScript ES6+', 'Computer Vision', 'Canvas API', 'WebRTC', 'Time-Series Forecasting', 'Agentic AI', 'PWA'],
+                impact: "Revolutionized retail execution workflows by reducing visit time from 45 to 18 minutes (-60%), achieving ₹8,200 average GMV uplift per visit through AI-optimized scheme selection, and delivering 92% compliance accuracy vs manual audits while maintaining sub-100ms inference latency on mobile devices.",
+                category: ["ai"],
+                github: "https://github.com/Garima-Sangwan/cpg-store-visit-copilot",
+                featured: true
+            },
+            {
                 title: "Enterprise AI Solutions with Llama",
                 icon: "🤖",
                 description: "Developed a suite of 7 enterprise-grade AI applications using Meta’s Llama 4 to handle multilingual communication, automated document processing, and advanced visual recognition tasks. Integrated large-context handling (10M+ tokens) and real-time object detection with bounding box annotations, enabling intelligent automation across diverse workflows.",
@@ -1372,15 +1368,15 @@
                 category: ["ai"],
                 github: "https://github.com/Garima-Sangwan/House-Price-Prediction"
             },
-            {
-                title: "Wine Quality Prediction",
-                icon: "🍷",
-                description: "Built a machine learning pipeline to predict wine quality based on physicochemical properties using classification algorithms and deep learning models. Incorporated feature selection, hyperparameter tuning, and visualization to enhance interpretability. This model aids vintners and quality inspectors by providing automated, consistent quality assessment of wines.",
-                technologies: ["Python", "TensorFlow", "Pandas", "Seaborn", "Keras"],
-                impact: "Achieved 88% classification accuracy, improving quality control efficiency by 30% and reducing manual inspection time by 40%, leading to more consistent product quality and increased consumer satisfaction.",
-                category: ["ai"],
-                github: "https://github.com/Garima-Sangwan/Wine-quality-prediction"
-            },
+            // {
+            //     title: "Wine Quality Prediction",
+            //     icon: "🍷",
+            //     description: "Built a machine learning pipeline to predict wine quality based on physicochemical properties using classification algorithms and deep learning models. Incorporated feature selection, hyperparameter tuning, and visualization to enhance interpretability. This model aids vintners and quality inspectors by providing automated, consistent quality assessment of wines.",
+            //     technologies: ["Python", "TensorFlow", "Pandas", "Seaborn", "Keras"],
+            //     impact: "Achieved 88% classification accuracy, improving quality control efficiency by 30% and reducing manual inspection time by 40%, leading to more consistent product quality and increased consumer satisfaction.",
+            //     category: ["ai"],
+            //     github: "https://github.com/Garima-Sangwan/Wine-quality-prediction"
+            // },
             {
                 title: "Serverless Agentic Workflows with AWS",
                 icon: "☁️",
